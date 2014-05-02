@@ -2,54 +2,57 @@ public class RPSServer
 {
 	public static void main(String[] args)
 	{
-		RPSClient player1 = new RPSClient();
-		RPSClient player2 = new RPSClient();
+		RPSClient player1 = new TestRPSClient();
+		RPSClient player2 = new TestRPSClient();
 		int NumberOfRounds = Integer.parseInt(args[0]);
 		int winner;
 		for(int i=0;i<NumberOfRounds;i++)
 		{
-			winner = evaluateWinner(player1.getNextMove(),playerTwo.getNextMove());
+			winner = evaluateWinner(player1.nextMove(),playerTwo.nextMove());
 			if(winner==0)
 			{
-				player1.sendResult('t');
-				player2.sendResult('t');
+				player1.result('t');
+				player2.result('t');
 			}
 			else if(winner==1)
 			{
-				player1.sendResult('w');
-				player2.sendResult('l');
+				player1.result('w');
+				player2.result('l');
 			}
 			else if(winner==2)
 			{
-				player1.sendResult('l');
-				player2.sendResult('w');
+				player1.result('l');
+				player2.result('w');
 			}
 		}
 	}
+	/**
+	 * Returns the winner of the match. 0 means tie, -1 means invalid move.
+	 */
 	private static int evaluateWinner(char playerOne, char playerTwo)
 	{
 		int winner = -1;
-		if(playerOne==playerTwo)
+		if(playerOne == playerTwo)
 			winner = 0;
-		else if(playerOne=='r')
+		else if(playerOne == 'r')
 		{
-			if(playerTwo=='s')
+			if(playerTwo == 's')
 				winner = 1;
-			else
+			else if(playerTwo == 'p')
 				winner = 2;
 		}
-		else if(playerOne=='s')
+		else if(playerOne == 's')
 		{
-			if(playerTwo=='p')
+			if(playerTwo == 'p')
 				winner = 1;
-			else
+			else if(playerTwo == 'r')
 				winner = 2;
 		}
-		else if(playerOne=='p')
+		else if(playerOne == 'p')
 		{
-			if(playerTwo=='r')
+			if(playerTwo == 'r')
 				winner = 1;
-			else
+			else if(playerTwo == 's')
 				winner = 2;
 		}
 		return winner;
