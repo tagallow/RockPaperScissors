@@ -25,7 +25,13 @@ public class RPSServer
 				player1.result('l');
 				player2.result('w');
 			}
+			score[winner]++;
 		}
+		System.out.println();
+		System.out.println("=FINAL SCORE=");
+		System.out.println("Player 1: "+score[1]);
+		System.out.println("Player 2: "+score[2]);
+		System.out.println("Ties: "+score[0]);
 	}
 	/**
 	 * Returns the winner of the match. 0 means tie, -1 means invalid move.
@@ -57,10 +63,10 @@ public class RPSServer
 			else if(playerTwo == 's')
 				winner = 2;
 		}
+		System.out.println();
 		System.out.println("Player 1: " + playerOne);
 		System.out.println("Player 2: " + playerTwo);
 		System.out.println("Winner: " + winner);
-		score[winner]++;
 		return winner;
 		
 	}
