@@ -6,6 +6,7 @@ public class RPSServer
 		RPSClient player2 = new TestRPSClient();
 		int NumberOfRounds = Integer.parseInt(args[0]);
 		int winner;
+		int[] score = new int[]{0,0,0};
 		for(int i=0;i<NumberOfRounds;i++)
 		{
 			winner = evaluateWinner(player1.nextMove(),player2.nextMove());
@@ -36,6 +37,7 @@ public class RPSServer
 			winner = 0;
 		else if(playerOne == 'r')
 		{
+		
 			if(playerTwo == 's')
 				winner = 1;
 			else if(playerTwo == 'p')
@@ -55,6 +57,10 @@ public class RPSServer
 			else if(playerTwo == 's')
 				winner = 2;
 		}
+		System.out.println("Player 1: " + playerOne);
+		System.out.println("Player 2: " + playerTwo);
+		System.out.println("Winner: " + winner);
+		score[winner]++;
 		return winner;
 		
 	}
