@@ -3,8 +3,8 @@ public class RPSServer
 	public static void main(String[] args)
 	{
 		RPSClient player1 = new TestRPSClient();
-		RPSClient player2 = new TestRPSClient();
-		int NumberOfRounds = Integer.parseInt(args[0]);
+		RPSClient player2 = new TomRPSClient();
+		int NumberOfRounds = 5000;//Integer.parseInt(args[0]);
 		int winner;
 		int[] score = new int[]{0,0,0};
 		for(int i=0;i<NumberOfRounds;i++)
@@ -12,18 +12,18 @@ public class RPSServer
 			winner = evaluateWinner(player1.nextMove(),player2.nextMove());
 			if(winner==0)
 			{
-				player1.result('t');
-				player2.result('t');
+				player1.result(GameStates.Tie);
+				player2.result(GameStates.Tie);
 			}
 			else if(winner==1)
 			{
-				player1.result('w');
-				player2.result('l');
+				player1.result(GameStates.Win);
+				player2.result(GameStates.Lose);
 			}
 			else if(winner==2)
 			{
-				player1.result('l');
-				player2.result('w');
+				player1.result(GameStates.Lose);
+				player2.result(GameStates.Win);
 			}
 			score[winner]++;
 		}
@@ -41,26 +41,26 @@ public class RPSServer
 		int winner = -1;
 		if(playerOne == playerTwo)
 			winner = 0;
-		else if(playerOne == 'r')
+		else if(playerOne == ValidMoves.Rock)
 		{
 		
-			if(playerTwo == 's')
+			if(playerTwo == ValidMoves.Scissors)
 				winner = 1;
-			else if(playerTwo == 'p')
+			else if(playerTwo == ValidMoves.Paper)
 				winner = 2;
 		}
-		else if(playerOne == 's')
+		else if(playerOne == ValidMoves.Scissors)
 		{
-			if(playerTwo == 'p')
+			if(playerTwo == ValidMoves.Paper)
 				winner = 1;
-			else if(playerTwo == 'r')
+			else if(playerTwo == ValidMoves.Rock)
 				winner = 2;
 		}
-		else if(playerOne == 'p')
+		else if(playerOne == ValidMoves.Paper)
 		{
-			if(playerTwo == 'r')
+			if(playerTwo == ValidMoves.Rock)
 				winner = 1;
-			else if(playerTwo == 's')
+			else if(playerTwo == ValidMoves.Scissors)
 				winner = 2;
 		}
 		System.out.println();

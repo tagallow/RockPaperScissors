@@ -20,13 +20,13 @@ public class TestRPSClient implements RPSClient
 		int r = rand.nextInt(3);
 		
 		if(r<1){
-			lastMove='r';
+			lastMove=ValidMoves.Rock;
 		}
 		else if(r<2){
-			lastMove='p';
+			lastMove=ValidMoves.Paper;
 		}
 		else if(r<3){
-			lastMove='s';
+			lastMove=ValidMoves.Scissors;
 		}
 		else{
 			lastMove='x';
@@ -36,13 +36,13 @@ public class TestRPSClient implements RPSClient
 	}
 	public void result(char result)
 	{
-		if(result=='w'){
+		if(result==GameStates.Win){
 			wins++;
 		}
-		if(result=='l'){
+		else if(result==GameStates.Lose){
 			loss++;
 		}
-		else{
+		else if(result==GameStates.Tie){
 			tie++;
 		}
 	}
