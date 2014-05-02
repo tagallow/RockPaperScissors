@@ -2,22 +2,22 @@ import java.util.ArrayList;
 import java.util.Random;
 public class TestRPSClient implements RPSClient
 {
-	private ArrayList<char> myPreviousMoves;
-	private ArrayList<char> opponentPreviousMoves;
+	//private ArrayList<char> myPreviousMoves;
+	//private ArrayList<char> opponentPreviousMoves;
 	private int wins,loss,tie;
 	private char lastMove;
 	public TestRPSClient()
 	{
-		myPreviousMoves = new ArrayList<char>();
-		opponentPreviousMoves = new ArrayList<char>();
+		//myPreviousMoves = new ArrayList<char>();
+		//opponentPreviousMoves = new ArrayList<char>();
 		wins=0;
 		loss=0;
 		tie=0;
 	}
 	public char nextMove()
 	{
-		Random r = new Random();
-		r = r*3;
+		Random rand = new Random();
+		int r = rand.nextInt(3);
 		
 		if(r<1){
 			lastMove='r';
@@ -30,7 +30,6 @@ public class TestRPSClient implements RPSClient
 		}
 		else{
 			lastMove='x';
-			System.Out.println("error");
 		}
 		return lastMove;
 			

@@ -8,7 +8,7 @@ public class RPSServer
 		int winner;
 		for(int i=0;i<NumberOfRounds;i++)
 		{
-			winner = evaluateWinner(player1.nextMove(),playerTwo.nextMove());
+			winner = evaluateWinner(player1.nextMove(),player2.nextMove());
 			if(winner==0)
 			{
 				player1.result('t');
