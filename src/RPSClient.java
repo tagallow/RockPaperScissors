@@ -1,4 +1,4 @@
-public interface RockPaperScissorsClient{
+public interface RPSClient{
 	/**
 	 * char - the move the player choses. Valid moves are:
 	 * 'r', 'p' and 's'

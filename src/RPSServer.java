@@ -2,8 +2,8 @@ public class RPSServer
 {
 	public static void main(String[] args)
 	{
-		RockPaperScissorsClient player1 = new RockPaperScissorsClient();
-		RockPaperScissorsClient player2 = new RockPaperScissorsClient();
+		RPSClient player1 = new RPSClient();
+		RPSClient player2 = new RPSClient();
 		int NumberOfRounds = Integer.parseInt(args[0]);
 		int winner;
 		for(int i=0;i<NumberOfRounds;i++)
