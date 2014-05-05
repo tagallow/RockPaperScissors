@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.Random;
-public class TestRPSClient implements RPSClient
+public class RandomRPSClient implements RPSClient
 {
 	//private ArrayList<char> myPreviousMoves;
 	//private ArrayList<char> opponentPreviousMoves;
 	private int wins,loss,tie;
 	private char lastMove;
-	public TestRPSClient()
+	public RandomRPSClient()
 	{
 		//myPreviousMoves = new ArrayList<char>();
 		//opponentPreviousMoves = new ArrayList<char>();
