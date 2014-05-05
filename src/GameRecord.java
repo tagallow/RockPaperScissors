@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 public class GameRecord {
 	private int ties,player1Score,player2Score;
 	private ArrayList<String> player1Moves,player2Moves;
