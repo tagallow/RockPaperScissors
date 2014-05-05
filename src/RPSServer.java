@@ -6,10 +6,10 @@ public class RPSServer
 		RPSClient player2 = new HumanRPSClient();
 		int NumberOfRounds = 5;//Integer.parseInt(args[0]);
 		int winner;
-		int[] score = new int[]{0,0,0};
+		GameRecord game = new GameRecord();
 		for(int i=0;i<NumberOfRounds;i++)
 		{
-			winner = evaluateWinner(player1.nextMove(),player2.nextMove());
+			winner = game.addTurn(player1.nextMove(), player2.nextMove());
 			if(winner==0)
 			{
 				player1.result(GameStates.Tie);
@@ -25,49 +25,11 @@ public class RPSServer
 				player1.result(GameStates.Lose);
 				player2.result(GameStates.Win);
 			}
-			score[winner]++;
 		}
 		System.out.println();
 		System.out.println("=FINAL SCORE=");
-		System.out.println("Player 1: "+score[1]);
-		System.out.println("Player 2: "+score[2]);
-		System.out.println("Ties: "+score[0]);
-	}
-	/**
-	 * Returns the winner of the match. 0 means tie, -1 means invalid move.
-	 */
-	private static int evaluateWinner(char playerOne, char playerTwo)
-	{
-		int winner = -1;
-		if(playerOne == playerTwo)
-			winner = 0;
-		else if(playerOne == ValidMoves.Rock)
-		{
-		
-			if(playerTwo == ValidMoves.Scissors)
-				winner = 1;
-			else if(playerTwo == ValidMoves.Paper)
-				winner = 2;
-		}
-		else if(playerOne == ValidMoves.Scissors)
-		{
-			if(playerTwo == ValidMoves.Paper)
-				winner = 1;
-			else if(playerTwo == ValidMoves.Rock)
-				winner = 2;
-		}
-		else if(playerOne == ValidMoves.Paper)
-		{
-			if(playerTwo == ValidMoves.Rock)
-				winner = 1;
-			else if(playerTwo == ValidMoves.Scissors)
-				winner = 2;
-		}
-		System.out.println();
-		System.out.println("Player 1: " + playerOne);
-		System.out.println("Player 2: " + playerTwo);
-		System.out.println("Winner: " + winner);
-		return winner;
-		
+		System.out.println("Player 1: "+game.getPlayer1Score());
+		System.out.println("Player 2: "+game.getPlayer2Score());
+		System.out.println("Ties: "+game.getTies());
 	}
 }
