@@ -3,8 +3,8 @@ public class RPSServer
 	public static void main(String[] args)
 	{
 		RPSClient player1 = new RandomRPSClient();
-		RPSClient player2 = new TomRPSClient();
-		int NumberOfRounds = 5000;//Integer.parseInt(args[0]);
+		RPSClient player2 = new HumanRPSClient();
+		int NumberOfRounds = 5;//Integer.parseInt(args[0]);
 		int winner;
 		GameRecord game = new GameRecord();
 		for(int i=0;i<NumberOfRounds;i++)
@@ -28,8 +28,8 @@ public class RPSServer
 		}
 		System.out.println();
 		System.out.println("=FINAL SCORE=");
-		System.out.println("Player 1: "+game.getPlayer1Score());
-		System.out.println("Player 2: "+game.getPlayer2Score());
+		System.out.println("Player 1: "+game.getPlayer1Score() + " "+ game.getPlayer1Percent());
+		System.out.println("Player 2: "+game.getPlayer2Score() + " "+ game.getPlayer2Percent());
 		System.out.println("Ties: "+game.getTies());
 	}
 }

@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 public class GameRecord {
@@ -81,6 +82,16 @@ public class GameRecord {
 	}
 	public ArrayList<String> getplayer2Moves(){
 		return player2Moves;
+	}
+	public String getPlayer1Percent(){
+		NumberFormat percentFormat = NumberFormat.getPercentInstance();
+		double percent = (double)player1Score/(player1Score+player2Score);
+		return percentFormat.format(percent);
+	}
+	public String getPlayer2Percent(){
+		NumberFormat percentFormat = NumberFormat.getPercentInstance();
+		double percent = (double)player2Score/(player1Score+player2Score);
+		return percentFormat.format(percent);
 	}
 	
 
