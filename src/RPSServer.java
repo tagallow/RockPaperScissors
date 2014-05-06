@@ -3,8 +3,8 @@ public class RPSServer
 	public static void main(String[] args)
 	{
 		RPSClient player1 = new RandomRPSClient();
-		RPSClient player2 = new HumanRPSClient();
-		int NumberOfRounds = 5;//Integer.parseInt(args[0]);
+		RPSClient player2 = new TomRPSClient();
+		int NumberOfRounds = 5000;//Integer.parseInt(args[0]);
 		int winner;
 		GameRecord game = new GameRecord();
 		for(int i=0;i<NumberOfRounds;i++)
