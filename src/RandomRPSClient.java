@@ -31,7 +31,7 @@ public class RandomRPSClient implements RPSClient
 		else{
 			lastMove='x';
 		}
-		lastMove = ValidMoves.Rock;
+		//lastMove = ValidMoves.Rock;
 		return lastMove;
 	}
 	public void result(char result)
